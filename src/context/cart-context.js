@@ -30,6 +30,7 @@ const CartContextProvider = (props) => {
     );
 
     if (currItem.amount === 1) {
+      items[selectedItemIndex].amount = items[selectedItemIndex].amount - 1;
       filteredItems = items.filter((item) => item.id !== currItem.id);
       setItems(filteredItems);
     } else {

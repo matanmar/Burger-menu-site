@@ -8,16 +8,18 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   const hasItems = cartCtx.items.length > 0;
 
-  let totalPrice = cartCtx.items
+  const totalPrice = cartCtx.items
     .reduce((counter, item) => (counter += item.price * item.amount), 0)
     .toFixed(2);
 
   const removeItemHandler = (item) => {
     cartCtx.removeItem(item);
+    console.log(cartCtx.items);
   };
 
   const addItemHandler = (item) => {
     cartCtx.addItem(item);
+    console.log(cartCtx.items);
   };
 
   const orderHandler = () => {
@@ -45,7 +47,7 @@ const Cart = (props) => {
           </li>
         ))}
       </ul>
-      {totalPrice ? (
+      {!hasItems ? (
         <h2> No items in cart yet!</h2>
       ) : (
         <div className={classes.total}>

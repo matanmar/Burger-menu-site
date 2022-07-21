@@ -48,6 +48,7 @@ const AvialebleMeals = () => {
 
   const addToCart = (item, amount = 1) => {
     cartCtx.addItem(item, amount);
+    console.log(cartCtx.items);
   };
 
   return (
